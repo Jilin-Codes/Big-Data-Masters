@@ -1,0 +1,148 @@
+[itv010274@g02 ~]$ ls/data/trendytech/mapreduce_jars
+bash: ls/data/trendytech/mapreduce_jars: No such file or directory
+[itv010274@g02 ~]$ ls
+data  Week3.ipynb
+[itv010274@g02 ~]$ ls /data
+addresses             challenges  gw03      imdb      nyse_all           relations       TetrasoftBigDataHackathon  yelp-dataset-json
+airlines_all          crime       h1b       linkedin  nyse_compressed    retail_db       training_history
+avro-tools-1.8.2.jar  gharchive   hr_db     names     nyse_symbols       retail_db_json  trendytech
+cards                 git         icds_poc  nyse      OpenJDK7-b147.tar  sports          yelp-dataset
+[itv010274@g02 ~]$ ls /data/trendytech
+bigLog.txt       customer-orders.csv  google-ads-data.csv  mapreduce_jars  search_data.txt
+boringwords.txt  friends-data.csv     kv1.txt              samplefile.txt  students.csv
+[itv010274@g02 ~]$ ls /data/trendytech/mapreduce_jars
+mapreduce_prog_0_reducer.jar  mapreduce_prog_combiner.jar      mapreduce_prog.jar
+mapreduce_prog_2_reducer.jar  mapreduce_prog_cpartitioner.jar
+[itv010274@g02 ~]$ hadoop fs -ls -t /user/itv010274/input
+-rw-r--r--   3 itv010274 supergroup        115 2023-12-15 10:09 /user/itv010274/input
+[itv010274@g02 ~]$ hadoop fs -ls -t /user/itv010274/input/
+-rw-r--r--   3 itv010274 supergroup        115 2023-12-15 10:09 /user/itv010274/input
+[itv010274@g02 ~]$ ls /home/itv010274
+data  Week3.ipynb
+[itv010274@g02 ~]$ ls /home/itv010274/data
+input  output
+[itv010274@g02 ~]$ ls /home/itv010274/data/input
+linkedin_views.csv
+[itv010274@g02 ~]$ cd /home/itv010274/data/input
+[itv010274@g02 input]$ vi inputfile.txt
+[itv010274@g02 input]$ hadoop fs -put /home/itv010274/data/input/inputfile.txt /user/itv010274/input
+put: `/user/itv010274/input': File exists
+[itv010274@g02 input]$ hadoop fs -ls -t /user/itv010274/input
+-rw-r--r--   3 itv010274 supergroup        115 2023-12-15 10:09 /user/itv010274/input
+[itv010274@g02 input]$ hadoop fs -ls /user/itv010274/input
+-rw-r--r--   3 itv010274 supergroup        115 2023-12-15 10:09 /user/itv010274/input
+[itv010274@g02 input]$ hadoop fs -put /home/itv010274/data/input/inputfile.txt /user/itv010274/
+[itv010274@g02 input]$ hadoop fs -ls -t /user/itv010274
+Found 5 items
+-rw-r--r--   3 itv010274 supergroup        138 2023-12-17 01:35 /user/itv010274/inputfile.txt
+drwxr-xr-x   - itv010274 supergroup          0 2023-12-17 00:45 /user/itv010274/.sparkStaging
+-rw-r--r--   3 itv010274 supergroup        115 2023-12-15 10:09 /user/itv010274/input
+drwxr-xr-x   - itv010274 supergroup          0 2023-12-15 09:32 /user/itv010274/data
+drwx------   - itv010274 supergroup          0 2023-12-09 23:07 /user/itv010274/.Trash
+[itv010274@g02 input]$ hadoop fs -ls -t -R /user/itv010274
+drwx------   - itv010274 supergroup          0 2023-12-09 23:07 /user/itv010274/.Trash
+drwx------   - itv010274 supergroup          0 2023-12-09 23:07 /user/itv010274/.Trash/Current
+drwx------   - itv010274 supergroup          0 2023-12-09 23:07 /user/itv010274/.Trash/Current/user
+drwx------   - itv010274 supergroup          0 2023-12-09 23:07 /user/itv010274/.Trash/Current/user/itv010274
+drwx------   - itv010274 supergroup          0 2023-12-09 23:07 /user/itv010274/.Trash/Current/user/itv010274/data
+drwxr-xr-x   - itv010274 supergroup          0 2023-12-09 22:54 /user/itv010274/.Trash/Current/user/itv010274/data/landing
+drwxr-xr-x   - itv010274 supergroup          0 2023-12-09 23:00 /user/itv010274/.Trash/Current/user/itv010274/data/results
+-rw-r--r--   3 itv010274 supergroup         97 2023-12-09 23:00 /user/itv010274/.Trash/Current/user/itv010274/data/results/orders_result.csv
+drwxr-xr-x   - itv010274 supergroup          0 2023-12-09 22:54 /user/itv010274/.Trash/Current/user/itv010274/data/staging
+-rwxrw-r--   3 itv010274 supergroup     735626 2023-12-09 22:43 /user/itv010274/.Trash/Current/user/itv010274/data/staging/orders_filtered.csv
+drwxr-xr-x   - itv010274 supergroup          0 2023-12-17 00:45 /user/itv010274/.sparkStaging
+drwxr-xr-x   - itv010274 supergroup          0 2023-12-15 09:32 /user/itv010274/data
+drwxr-xr-x   - itv010274 supergroup          0 2023-12-15 09:29 /user/itv010274/data/input
+drwxr-xr-x   - itv010274 supergroup          0 2023-12-15 09:32 /user/itv010274/data/output
+-rw-r--r--   3 itv010274 supergroup        115 2023-12-15 10:09 /user/itv010274/input
+-rw-r--r--   3 itv010274 supergroup        138 2023-12-17 01:35 /user/itv010274/inputfile.txt
+[itv010274@g02 input]$ hadoopjar/data/trendytech/mapreduce_jars/mapreduce_prog.jar/user/itv005357/data/input/inputfile.txt/user/itv005357/data/output_program_1
+bash: hadoopjar/data/trendytech/mapreduce_jars/mapreduce_prog.jar/user/itv005357/data/input/inputfile.txt/user/itv005357/data/output_program_1: No such file or directory
+[itv010274@g02 input]$ hadoop jar /data/trendytech/mapreduce_jars/mapreduce_prog_0_reducer.jar /user/itv010274/inputfile.txt /user/itv010274/data/output/result
+2023-12-17 01:39:07,320 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at m02.itversity.com/172.16.1.104:8032
+2023-12-17 01:39:07,834 INFO client.AHSProxy: Connecting to Application History server at m01.itversity.com/172.16.1.103:10200
+2023-12-17 01:39:08,315 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/itv010274/.staging/job_1692342312988_88023
+2023-12-17 01:39:17,679 INFO input.FileInputFormat: Total input files to process : 1
+2023-12-17 01:39:18,275 INFO mapreduce.JobSubmitter: number of splits:1
+2023-12-17 01:39:18,709 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1692342312988_88023
+2023-12-17 01:39:18,709 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2023-12-17 01:39:19,019 INFO conf.Configuration: resource-types.xml not found
+2023-12-17 01:39:19,020 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2023-12-17 01:39:19,108 INFO impl.YarnClientImpl: Submitted application application_1692342312988_88023
+2023-12-17 01:39:19,152 INFO mapreduce.Job: The url to track the job: http://m02.itversity.com:19088/proxy/application_1692342312988_88023/
+2023-12-17 01:39:19,153 INFO mapreduce.Job: Running job: job_1692342312988_88023
+2023-12-17 01:39:24,251 INFO mapreduce.Job: Job job_1692342312988_88023 running in uber mode : false
+2023-12-17 01:39:24,252 INFO mapreduce.Job:  map 0% reduce 0%
+2023-12-17 01:39:28,366 INFO mapreduce.Job:  map 100% reduce 0%
+2023-12-17 01:39:30,392 INFO mapreduce.Job: Job job_1692342312988_88023 completed successfully
+2023-12-17 01:39:30,493 INFO mapreduce.Job: Counters: 33
+        File System Counters
+                FILE: Number of bytes read=0
+                FILE: Number of bytes written=266168
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=261
+                HDFS: Number of bytes written=190
+                HDFS: Number of read operations=7
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+                HDFS: Number of bytes read erasure-coded=0
+        Job Counters 
+                Launched map tasks=1
+                Data-local map tasks=1
+                Total time spent by all maps in occupied slots (ms)=1368
+                Total time spent by all reduces in occupied slots (ms)=0
+                Total time spent by all map tasks (ms)=1368
+                Total vcore-milliseconds taken by all map tasks=1368
+                Total megabyte-milliseconds taken by all map tasks=1400832
+        Map-Reduce Framework
+                Map input records=5
+                Map output records=26
+                Input split bytes=123
+                Spilled Records=0
+                Failed Shuffles=0
+                Merged Map outputs=0
+                GC time elapsed (ms)=18
+                CPU time spent (ms)=320
+                Physical memory (bytes) snapshot=287133696
+                Virtual memory (bytes) snapshot=2618122240
+                Total committed heap usage (bytes)=625475584
+                Peak Map Physical memory (bytes)=287133696
+                Peak Map Virtual memory (bytes)=2618122240
+        File Input Format Counters 
+                Bytes Read=138
+        File Output Format Counters 
+                Bytes Written=190
+[itv010274@g02 input]$ hadoop fs -ls /user/itv010274/data/output/result
+Found 2 items
+-rw-r--r--   3 itv010274 supergroup          0 2023-12-17 01:39 /user/itv010274/data/output/result/_SUCCESS
+-rw-r--r--   3 itv010274 supergroup        190 2023-12-17 01:39 /user/itv010274/data/output/result/part-m-00000
+[itv010274@g02 input]$ hadoop fs -cat /user/itv010274/data/output/result/part-m-00000
+big     1
+data    1
+is      1
+interesting     1
+big     1
+data    1
+is      1
+one     1
+of      1
+the     1
+most    1
+trending        1
+technology      1
+my      1
+name    1
+is      1
+sumit   1
+i       1
+teach   1
+big     1
+data    1
+my      1
+institute       1
+name    1
+is      1
+Trendytech      1
+[itv010274@g02 input]$ 
